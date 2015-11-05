@@ -1,0 +1,32 @@
+{
+  "name": "instant-messages-system",
+  "version": "1.0.0",
+  "description": "Instant messages system on node.js",
+  "main": "bin/app.js",
+  "bin": {
+    "instant-messages-system": "app.js"
+  },
+  "scripts": {
+    "start": "sudo node bin/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PashaTkachuk/instant-messages-system.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PashaTkachuk/instant-messages-system/issues"
+  },
+  "homepage": "https://github.com/PashaTkachuk/instant-messages-system#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "md5": "^2.0.0",
+    "pg": "^4.4.3",
+    "redis": "^2.3.0"
+  }
+}

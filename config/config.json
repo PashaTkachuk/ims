@@ -1,0 +1,47 @@
+{
+  "env": "dev",
+  "server": {
+      "host": "localhost",
+      "port": 3000
+  },
+  "web_server": {
+    "host": "localhost",
+    "port": 3030
+  },
+  "session": {
+      "secret": "FFRPLXN4kisBn9pdcGPm0ss0yyAsHzfJ",
+      "name": "sid",
+      "cookie": {
+          "path": "/",
+          "httpOnly": true,
+          "maxAge": null
+      }
+  },
+  "redis": {
+    "host": "localhost",
+    "port": 6379,
+    "ttl": 1800,
+    "database": 0,
+    "password": null
+  },
+  "mysql": {
+    "host": "localhost",
+  	"user": "root",
+  	"password": "root",
+  	"database": "tm-vm"
+  },
+  "mail": {
+    "service": "Gmail",
+    "auth": {
+        "user": "test.tkachuk@gmail.com",
+        "pass": "test159753"
+    }
+  },
+  "cache": {
+    "status": 1,
+    "port": 80,
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.76 Safari/537.36"
+    }
+  }   
+}

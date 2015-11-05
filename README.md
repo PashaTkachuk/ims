@@ -1,2 +1,1 @@
-# instant-messages-system
-## Initial commit
+INSTANT MESSAGING SYSTEM
