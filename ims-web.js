@@ -5,7 +5,7 @@ var app = express();
 var config = require('./config/index');
 
 app.use(express.static(__dirname + '/ims-web'));
-
+app.use('/socket.io', express.static(__dirname + '/node_modules/socket.io-client/'));
 app.start = function() {
 	var server = app.listen(config.web_server.port, config.web_server.host, function () {
 		let host = server.address().address;

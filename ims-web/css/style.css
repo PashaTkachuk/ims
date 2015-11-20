@@ -4,3 +4,11 @@ html, body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
 }
+
+x-chat-window {
+  display: block;
+  width: 800px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 10px;
+}

@@ -1,0 +1,35 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
+
+<dom-module id="x-chat-window">
+    <link rel="stylesheet" href="x-chat-window.css">
+
+    <template>
+        <paper-listbox id="message-box">
+            <template is="dom-repeat" items="{{messages}}">
+                <template is="dom-if" if="{{isAuthor(item.username)}}">
+                    <paper-item class="own">
+                        <span>{{item.body}}</span>
+                    </paper-item>
+                </template>
+                <template is="dom-if" if="{{!isAuthor(item.username)}}">
+                    <paper-item>
+                        <span>{{item.body}}</span>
+                    </paper-item>
+                </template>
+            </template>
+        </paper-listbox>
+        <form is="iron-form" id="form" method="" action="">
+            <paper-input name="message" label="Message" bind-value="{{message}}"></paper-input>
+            <paper-button raised on-click="sendMessage">Send</paper-button>
+        </form>
+    </template>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="x-chat-window.js"></script>
+
+</dom-module>

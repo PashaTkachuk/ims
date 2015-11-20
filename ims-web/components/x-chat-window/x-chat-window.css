@@ -1,0 +1,14 @@
+:host {
+    display: block;
+}
+.own {
+    background-color: #00b8d4;
+}
+.own span {
+    width: 100%;
+    text-align: right;
+}
+.message-box paper-item {
+    display: block;
+    width: 300px;
+}
