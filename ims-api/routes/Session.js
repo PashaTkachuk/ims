@@ -11,14 +11,14 @@ var SessionRouter = {
 			} else {					
 				if (result) {
 					res.cookie('sid', req.sessionID, {path: req.session.cookie.path, httpOnly: req.session.cookie.httpOnly, expires: req.session.cookie.expires, signed: true});
-					res.cookie('username', 'Pasha', {path: req.session.cookie.path, httpOnly: false, expires: req.session.cookie.expires});
-					var response = {
+					res.cookie('username', username, {path: req.session.cookie.path, httpOnly: false, expires: req.session.cookie.expires});
+					let response = {
 						status: 'success',
 						text: 'You have successfully logged'
-					}
+					};
 					res.status(200).send(response);
 				} else {
-					var response = {
+					let response = {
 						status: 'error',
 						text: 'Error entered data'
 					};
@@ -35,10 +35,10 @@ var SessionRouter = {
 					res.clearCookie('username');
 					res.clearCookie('sid');
 					req.session.destroy();
-					var response = {
+					let response = {
 						status: 'success',
 						text: 'You successfully log out'
-					}
+					};
 					res.status(200).send(response);
 			}
 		});
@@ -56,6 +56,6 @@ var SessionRouter = {
 			}
 		});
  	}
-}
+};
 
 module.exports = SessionRouter;

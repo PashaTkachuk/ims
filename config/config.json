@@ -24,11 +24,11 @@
     "database": 0,
     "password": null
   },
-  "mysql": {
+  "postgreSQL": {
     "host": "localhost",
-  	"user": "root",
-  	"password": "root",
-  	"database": "tm-vm"
+  	"username": "postgres",
+  	"password": "postgres",
+  	"database": "postgres"
   },
   "mail": {
     "service": "Gmail",

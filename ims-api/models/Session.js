@@ -10,7 +10,6 @@ var Session = {
       } else {
         callback(null, result);
       }
-      return;
     });
   },
   get: function (username, callback) {
@@ -20,7 +19,6 @@ var Session = {
       } else {
         callback(null, result);
       }
-      return;
     });
   },
   delete: function (username, value, callback) {
@@ -30,7 +28,6 @@ var Session = {
       } else {
         callback(null, result);
       }
-      return;
     });
   }
 };
