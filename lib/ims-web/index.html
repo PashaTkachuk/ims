@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instant messages system</title>
+    <script src="components/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link href="components/elements.html" rel="import">
+</head>
+<body unresolved class="fullbleed layout vertical">
+    <span id="browser-sync-binding"></span>
+    <template is="dom-bind" id="app">
+
+        <paper-header-panel main id="headerPanelMain" condenses keep-condensed-header>
+            <paper-toolbar class="medium-tall">
+                <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+                <span class="flex">IMS</span>
+                <paper-tabs class="bottom fit" attr-for-selected="data-route" selected="[[route]]">
+                    <paper-tab>
+                        <a data-route="home" href="{{baseUrl}}">
+                            <iron-icon icon="home"></iron-icon>
+                            <span>Home</span>
+                        </a>
+                    </paper-tab>
+                    <paper-tab>
+                        <a data-route="users" href="users">
+                            <iron-icon icon="info"></iron-icon>
+                            <span>Users</span>
+                        </a>
+                    </paper-tab>
+                    <paper-tab>
+                        <a data-route="contact" href="contact">
+                            <iron-icon icon="mail"></iron-icon>
+                            <span>Contact</span>
+                        </a>
+                    </paper-tab>
+                </paper-tabs>
+            </paper-toolbar>
+
+            <div class="content">
+                <iron-pages attr-for-selected="data-route" selected="{{route}}">
+
+                    <section data-route="home">
+                        <paper-material elevation="1">
+                            <h2 class="page-title">Home</h2>
+                            <p>This is the home section</p>
+                        </paper-material>
+                    </section>
+
+                    <section data-route="users">
+                        <paper-material elevation="1">
+                            <h2 class="page-title">Users</h2>
+                            <p>This is the users section</p>
+                            <a href$="{{baseUrl}}users/Addy">Addy</a><br>
+                            <a href$="{{baseUrl}}users/Rob">Rob</a><br>
+                            <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
+                            <a href$="{{baseUrl}}users/Sam">Sam</a>
+                        </paper-material>
+                    </section>
+
+                    <section data-route="contact">
+                        <paper-material elevation="1">
+                            <h2 class="page-title">Contact</h2>
+                            <p>This is the contact section</p>
+                        </paper-material>
+                    </section>
+
+                </iron-pages>
+            </div>
+
+        </paper-header-panel>
+
+        <paper-toast id="toast">
+            <span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok</span>
+        </paper-toast>
+    </template>
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>

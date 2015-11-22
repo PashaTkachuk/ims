@@ -1,0 +1,37 @@
+<script src="bower_components/page/page.js"></script>
+<script>
+    window.addEventListener('WebComponentsReady', function() {
+
+        // Middleware
+        function scrollToTop(ctx, next) {
+            app.scrollPageToTop();
+            next();
+        }
+        // Routes
+        page('/', scrollToTop, function() {
+            app.route = 'home';
+        });
+        page(app.baseUrl, scrollToTop, function() {
+            app.route = 'home';
+        });
+        page('/users', scrollToTop, function() {
+            app.route = 'users';
+        });
+        page('/users/:name', scrollToTop, function(data) {
+            app.route = 'user-info';
+            app.params = data.params;
+        });
+        page('/contact', scrollToTop, function() {
+            app.route = 'contact';
+        });
+        page('*', function() {
+            app.$.toast.text = 'Can\'t find: ' + window.location.href  + '. Redirected you to Home Page';
+            app.$.toast.show();
+            page.redirect(app.baseUrl);
+        });
+        // add #! before urls
+        page({
+            hashbang: false
+        });
+    });
+</script>

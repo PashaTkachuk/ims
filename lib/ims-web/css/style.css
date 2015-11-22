@@ -12,3 +12,8 @@ x-chat-window {
   background-color: #ffffff;
   padding: 10px;
 }
+
+#headerPanelMain a {
+  text-decoration: none;
+  color: #ffffff;
+}

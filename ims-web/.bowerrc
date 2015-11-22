@@ -1,5 +1,0 @@
-{
-  "proxy" : "http://artem.naumuk:Xsw23edc@proxy:3249",
-  "https-proxy" : "http://artem.naumuk:Xsw23edc@proxy:3249",
-  "directory" : "components/bower_components"
-}
