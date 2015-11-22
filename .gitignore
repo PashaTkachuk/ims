@@ -1,0 +1,8 @@
+#### Local node modules ###
+node_modules
+
+### Local bower components ###
+lib/ims-web/components/bower_components/
+
+### Logs ###
+*.log
