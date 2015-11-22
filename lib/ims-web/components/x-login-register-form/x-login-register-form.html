@@ -1,0 +1,18 @@
+<dom-module id="x-login-register-form">
+    <template>
+        <link rel="stylesheet" href="x-login-register-form.css">
+
+        <paper-material elevation="1">
+            <paper-tabs selected="{{select}}" class="primary-color text-icons">
+                <paper-tab>Log In</paper-tab>
+                <paper-tab>Create Account</paper-tab>
+            </paper-tabs>
+            <iron-pages selected="{{select}}">
+                <x-login-form></x-login-form>
+                <x-register-form></x-register-form>
+            </iron-pages>
+        </paper-material>
+    </template>
+
+    <script src="x-login-register-form.js"></script>
+</dom-module>

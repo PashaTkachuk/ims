@@ -8,11 +8,27 @@
             next();
         }
         // Routes
+        page('*', function(ctx, next) {
+            if (app.user.isLogged && ctx.path != '/login') {
+                next();
+            } else if (app.user.isLogged && ctx.path == '/login') {
+                app.$.toast.text = 'User successful authorized. Redirected you to Home page';
+                app.$.toast.show();
+                page.redirect(app.baseUrl);
+            } else if (!app.user.isLogged && ctx.path == '/login') {
+                next();
+            }else {
+                app.$.toast.text = 'User unauthorized. Redirected you to Login page';
+                app.$.toast.show();
+                page.redirect('/login');
+            }
+        });
+
         page('/', scrollToTop, function() {
-            app.route = 'home';
+            app.route = 'inbox';
         });
         page(app.baseUrl, scrollToTop, function() {
-            app.route = 'home';
+            app.route = 'inbox';
         });
         page('/users', scrollToTop, function() {
             app.route = 'users';
@@ -21,9 +37,11 @@
             app.route = 'user-info';
             app.params = data.params;
         });
-        page('/contact', scrollToTop, function() {
-            app.route = 'contact';
+
+        page('/login', scrollToTop, function() {
+            app.route = 'login';
         });
+
         page('*', function() {
             app.$.toast.text = 'Can\'t find: ' + window.location.href  + '. Redirected you to Home Page';
             app.$.toast.show();
@@ -31,7 +49,7 @@
         });
         // add #! before urls
         page({
-            hashbang: false
+            hashbang: true
         });
     });
 </script>

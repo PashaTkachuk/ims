@@ -1,0 +1,30 @@
+<dom-module id="x-login-form">
+    <link rel="stylesheet" href="x-login-form.css">
+
+    <template>
+        <iron-ajax id="sessionRequest"
+            url="{{sessionService}}"
+            method="POST"
+            body = '{
+                "username": "{{username}}",
+                "password": "{{password}}"
+            }'
+            handle-as="json"
+            on-response="handleResponse"
+            withCredentials="true">
+        </iron-ajax>
+        <div class="header">
+            <span class="secondary-text">Log in using your username</span><br>
+            <iron-icon class="secondary-text" icon="account-circle"></iron-icon>
+        </div>
+
+        <div class="vertical-section">
+            <paper-input id="uinput" required label="Username" auto-validate pattern="^[a-zA-Z ]+[a-zA-Z0-9_-]*" error-message="Value must start with a letter! Allowed: a-z A-Z 0-9 _ -" value="{{username}}" autofocus></paper-input>
+            <paper-input id="pinput" required label="Password" pattern="[a-zA-Z0-9_-]*" error-message="Allowed: a-z A-Z 0-9 _ -" value="{{password}}"></paper-input>
+            <paper-button class="accent-color" raised id="logInButton" on-click="sendRequest">Log In</paper-button>
+        </div>
+    </template>
+
+    <script src="x-login-form.js"></script>
+
+</dom-module>

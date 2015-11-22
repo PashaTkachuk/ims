@@ -10,64 +10,72 @@
     <span id="browser-sync-binding"></span>
     <template is="dom-bind" id="app">
 
-        <paper-header-panel main id="headerPanelMain" condenses keep-condensed-header>
-            <paper-toolbar class="medium-tall">
-                <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
-                <span class="flex">IMS</span>
-                <paper-tabs class="bottom fit" attr-for-selected="data-route" selected="[[route]]">
-                    <paper-tab>
-                        <a data-route="home" href="{{baseUrl}}">
-                            <iron-icon icon="home"></iron-icon>
-                            <span>Home</span>
-                        </a>
-                    </paper-tab>
-                    <paper-tab>
-                        <a data-route="users" href="users">
-                            <iron-icon icon="info"></iron-icon>
-                            <span>Users</span>
-                        </a>
-                    </paper-tab>
-                    <paper-tab>
-                        <a data-route="contact" href="contact">
-                            <iron-icon icon="mail"></iron-icon>
-                            <span>Contact</span>
-                        </a>
-                    </paper-tab>
-                </paper-tabs>
-            </paper-toolbar>
+        <paper-drawer-panel id="paperDrawerPanel">
+            <!-- Drawer Scroll Header Panel -->
+            <paper-header-panel drawer>
 
-            <div class="content">
-                <iron-pages attr-for-selected="data-route" selected="{{route}}">
+                <!-- Drawer Toolbar -->
+                <paper-toolbar id="drawerToolbar">
+                    <span class="paper-font-title">Menu</span>
+                </paper-toolbar>
 
-                    <section data-route="home">
-                        <paper-material elevation="1">
-                            <h2 class="page-title">Home</h2>
-                            <p>This is the home section</p>
-                        </paper-material>
-                    </section>
+                <!-- Drawer Content -->
+                <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
+                    <a data-route="inbox" href="{{baseUrl}}">
+                        <iron-icon icon="inbox"></iron-icon>
+                        <span>Inbox</span>
+                    </a>
 
-                    <section data-route="users">
-                        <paper-material elevation="1">
-                            <h2 class="page-title">Users</h2>
-                            <p>This is the users section</p>
-                            <a href$="{{baseUrl}}users/Addy">Addy</a><br>
-                            <a href$="{{baseUrl}}users/Rob">Rob</a><br>
-                            <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-                            <a href$="{{baseUrl}}users/Sam">Sam</a>
-                        </paper-material>
-                    </section>
+                    <a data-route="users" href="users">
+                        <iron-icon icon="list"></iron-icon>
+                        <span>Users</span>
+                    </a>
 
-                    <section data-route="contact">
-                        <paper-material elevation="1">
-                            <h2 class="page-title">Contact</h2>
-                            <p>This is the contact section</p>
-                        </paper-material>
-                    </section>
+                    <a data-route="profile" href="profile">
+                        <iron-icon icon="account-circle"></iron-icon>
+                        <span>Profile</span>
+                    </a>
+                </paper-menu>
+            </paper-header-panel>
 
-                </iron-pages>
-            </div>
+            <paper-header-panel main id="headerPanelMain" >
+                <template is="dom-if" if="{{user.isLogged}}">
+                    <paper-toolbar class="dark-primary-color">
+                        <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+                        <span class="flex">IMS</span>
+                    </paper-toolbar>
+                </template>
 
-        </paper-header-panel>
+                <div class="content">
+                    <iron-pages attr-for-selected="data-route" selected="{{route}}">
+
+                        <section data-route="inbox">
+                            <paper-material elevation="1">
+                                <h2 class="page-title">inbox</h2>
+                                <p>This is the inbox section</p>
+                            </paper-material>
+                        </section>
+
+                        <section data-route="users">
+                            <paper-material elevation="1">
+                                <h2 class="page-title">Users</h2>
+                                <p>This is the users section</p>
+                                <a href$="{{baseUrl}}users/Addy">Addy</a><br>
+                                <a href$="{{baseUrl}}users/Rob">Rob</a><br>
+                                <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
+                                <a href$="{{baseUrl}}users/Sam">Sam</a>
+                            </paper-material>
+                        </section>
+
+                        <section data-route="login">
+                            <x-login-register-form></x-login-register-form>
+                        </section>
+
+                    </iron-pages>
+                </div>
+
+            </paper-header-panel>
+        </paper-drawer-panel>
 
         <paper-toast id="toast">
             <span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok</span>
