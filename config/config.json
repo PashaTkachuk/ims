@@ -26,9 +26,9 @@
   },
   "postgreSQL": {
     "host": "localhost",
-  	"username": "postgres",
-  	"password": "postgres",
-  	"database": "postgres"
+  	"username": "pasha",
+  	"password": "root",
+  	"database": "ims_db"
   },
   "mail": {
     "service": "Gmail",
