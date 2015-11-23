@@ -5,10 +5,8 @@
         <iron-ajax id="sessionRequest"
             url="{{sessionService}}"
             method="POST"
-            body = '{
-                "username": "{{username}}",
-                "password": "{{password}}"
-            }'
+            body = "{{requestBody}}"
+            content-type = "application/json"
             handle-as="json"
             on-response="handleResponse"
             withCredentials="true">

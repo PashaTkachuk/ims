@@ -19,23 +19,25 @@
                     <span class="paper-font-title">Menu</span>
                 </paper-toolbar>
 
-                <!-- Drawer Content -->
-                <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
-                    <a data-route="inbox" href="{{baseUrl}}">
-                        <iron-icon icon="inbox"></iron-icon>
-                        <span>Inbox</span>
-                    </a>
+                <template is="dom-if" if="{{user.isLogged}}">
+                    <!-- Drawer Content -->
+                    <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
+                        <a data-route="inbox" href="{{baseUrl}}">
+                            <iron-icon icon="inbox"></iron-icon>
+                            <span>Inbox</span>
+                        </a>
 
-                    <a data-route="users" href="users">
-                        <iron-icon icon="list"></iron-icon>
-                        <span>Users</span>
-                    </a>
+                        <a data-route="users" href="users">
+                            <iron-icon icon="list"></iron-icon>
+                            <span>Users</span>
+                        </a>
 
-                    <a data-route="profile" href="profile">
-                        <iron-icon icon="account-circle"></iron-icon>
-                        <span>Profile</span>
-                    </a>
-                </paper-menu>
+                        <a data-route="profile" href="profile">
+                            <iron-icon icon="account-circle"></iron-icon>
+                            <span>Profile</span>
+                        </a>
+                    </paper-menu>
+                </template>
             </paper-header-panel>
 
             <paper-header-panel main id="headerPanelMain" >
@@ -45,7 +47,6 @@
                         <span class="flex">IMS</span>
                     </paper-toolbar>
                 </template>
-
                 <div class="content">
                     <iron-pages attr-for-selected="data-route" selected="{{route}}">
 

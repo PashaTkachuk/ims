@@ -3,6 +3,7 @@ node_modules
 
 ### Local bower components ###
 lib/ims-web/components/bower_components/
+lib/ims-web/.bowerrc
 
 ### Logs ###
 *.log

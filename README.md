@@ -5,7 +5,7 @@ INSTANT MESSAGING SYSTEM
 sudo su - postgres
 psql
 CREATE USER pasha WITH PASSWORD 'root';
-CREATE DATABASE ims_db OWNER root;
+CREATE DATABASE ims_db OWNER pasha;
 
 
 
