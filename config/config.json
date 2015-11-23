@@ -1,11 +1,11 @@
 {
   "env": "dev",
   "server": {
-      "host": "127.0.0.1",
+      "host": "localhost",
       "port": 3000
   },
   "web_server": {
-    "host": "127.0.0.1",
+    "host": "localhost",
     "port": 3030
   },
   "session": {
@@ -13,9 +13,8 @@
       "name": "sid",
       "cookie": {
           "path": "/",
-          "httpOnly": true,
-          "maxAge": null,
-          "domain": ".127.0.0.1:3030"
+          "httpOnly": false,
+          "maxAge": null
       }
   },
   "redis": {

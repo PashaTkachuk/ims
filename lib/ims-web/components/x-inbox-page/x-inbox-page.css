@@ -1,0 +1,26 @@
+:host {
+    display: block;
+    padding: 30px;
+    color: #212121;
+    text-align: center;
+}
+
+paper-button {
+    display: block;
+    margin: 20px 0 0 0;
+}
+
+x-register-form iron-icon{
+    margin-top: 20px;
+    height: 70px !important;
+    width: 70px !important;
+}
+
+x-register-form .header {
+    width: 100%;
+    text-align: center;
+}
+
+#error {
+    font: italic 14px serif;
+}
