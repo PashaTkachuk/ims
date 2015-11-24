@@ -27,9 +27,9 @@
                             <span>Inbox</span>
                         </a>
 
-                        <a data-route="users" href="users">
+                        <a data-route="contacts" href="contacts">
                             <iron-icon icon="list"></iron-icon>
-                            <span>Users</span>
+                            <span>Contact List</span>
                         </a>
 
                         <a data-route="profile" href="profile">
@@ -56,19 +56,18 @@
                             </paper-material>
                         </section>
 
-                        <section data-route="users">
+                        <section data-route="contacts">
                             <paper-material elevation="1">
-                                <h2 class="page-title">Users</h2>
-                                <p>This is the users section</p>
-                                <a href$="{{baseUrl}}users/Addy">Addy</a><br>
-                                <a href$="{{baseUrl}}users/Rob">Rob</a><br>
-                                <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-                                <a href$="{{baseUrl}}users/Sam">Sam</a>
+                                <x-contacts-page></x-contacts-page>
                             </paper-material>
                         </section>
 
                         <section data-route="login">
                             <x-login-register-form></x-login-register-form>
+                        </section>
+
+                        <section data-route="chat">
+                            <x-chat-window></x-chat-window>
                         </section>
 
                     </iron-pages>

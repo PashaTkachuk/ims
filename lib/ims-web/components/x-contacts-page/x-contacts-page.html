@@ -1,0 +1,63 @@
+<dom-module id="x-contacts-page">
+    <link rel="stylesheet" href="x-contacts-page.css">
+
+    <template>
+        <iron-ajax auto
+            url="http://localhost:3000/contact"
+            method="GET"
+            handle-as="json"
+            last-response="{{contacts}}"
+            with-credentials="true">
+        </iron-ajax>
+        <div class="container">
+            <div class="contact-list">
+                <iron-list items="[[contacts]]" as="user">
+                    <template>
+                        <div class="contact_item">
+                            <img src="http://prdrigs.com/assets/img/home/avatar1.jpg">
+                            <p>
+                                <b>[[user.username]]</b> <br>
+                                <i>[[user.email]]</i>
+                            </p>
+                            <div>
+                                <paper-fab on-click="openChat" icon="communication:message"></paper-fab>
+                                <paper-fab icon="delete"></paper-fab>
+                                <paper-button raised on-click="openChat" id="[[user.user_id]]">Open chat</paper-button>
+                            </div>
+                        </div>
+                    </template>
+                </iron-list>
+                <paper-fab class="add-icon" icon="add"></paper-fab>
+            </div>
+            <div class="contact-info">
+                <h4>Icon with two-line text</h4>
+                <div class="list" role="listbox">
+                    <paper-icon-item>
+                        <div class="avatar green" item-icon></div>
+                        <paper-item-body two-line>
+                            <div>Alphonso Engelking</div>
+                            <div secondary>Change photo</div>
+                        </paper-item-body>
+                    </paper-icon-item>
+                    <paper-icon-item>
+                        <iron-icon icon="communication:phone" item-icon></iron-icon>
+                        <paper-item-body two-line>
+                            <div>(650) 555-1234</div>
+                            <div secondary>Mobile</div>
+                        </paper-item-body>
+                    </paper-icon-item>
+                    <paper-icon-item>
+                        <iron-icon icon="communication:email" item-icon></iron-icon>
+                        <paper-item-body two-line>
+                            <div>alphonso@example.com</div>
+                            <div secondary>Personal</div>
+                        </paper-item-body>
+                    </paper-icon-item>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="x-contacts-page.js"></script>
+
+</dom-module>

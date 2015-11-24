@@ -30,10 +30,14 @@
         page(app.baseUrl, scrollToTop, function() {
             app.route = 'inbox';
         });
-        page('/users', scrollToTop, function() {
-            app.route = 'users';
+        page('/contacts', scrollToTop, function() {
+            app.route = 'contacts';
         });
-        page('/users/:name', scrollToTop, function(data) {
+        page('/chat/:user_id', scrollToTop, function(data) {
+            app.route = 'chat';
+            app.params = data.params;
+        });
+        page('/contacts/:username', scrollToTop, function(data) {
             app.route = 'user-info';
             app.params = data.params;
         });

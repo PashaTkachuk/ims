@@ -7,16 +7,23 @@
 
 <dom-module id="x-chat-window">
     <link rel="stylesheet" href="x-chat-window.css">
-
     <template>
+        <iron-ajax auto
+                   url="http://localhost:3000/message/2"
+                   method="GET"
+                   handle-as="json"
+                   last-response="{{messages}}"
+                   with-credentials="true">
+        </iron-ajax>
+
         <paper-listbox id="message-box">
             <template is="dom-repeat" items="{{messages}}">
-                <template is="dom-if" if="{{isAuthor(item.username)}}">
+                <template is="dom-if" if="{{isAuthor(item.sender)}}">
                     <paper-item class="own">
                         <span>{{item.body}}</span>
                     </paper-item>
                 </template>
-                <template is="dom-if" if="{{!isAuthor(item.username)}}">
+                <template is="dom-if" if="{{!isAuthor(item.sender)}}">
                     <paper-item>
                         <span>{{item.body}}</span>
                     </paper-item>
