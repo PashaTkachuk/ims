@@ -10,10 +10,12 @@ INSERT INTO contact_list (user_id, contact_id) VALUES (1, 2);
 --add contact 'user'
 INSERT INTO contact_list (user_id, contact_id) VALUES (2, 1);
 
-INSERT INTO message (body, sender) VALUES ('Hello Admin!', 2);
+INSERT INTO dialog (type) VALUES ('private');
 
-INSERT INTO message (body, sender) VALUES ('Hello User!', 1);
+INSERT INTO dialog_contact (dialog_id, user_id) VALUES (1, 1);
 
-INSERT INTO message_recipient (message_id, recipient_id) VALUES (1, 1);
+INSERT INTO dialog_contact (dialog_id, user_id) VALUES (1, 2);
 
-INSERT INTO message_recipient (message_id, recipient_id) VALUES (2, 2);
+INSERT INTO message (body, sender, dialog) VALUES ('Hello Admin!', 2, 1);
+
+INSERT INTO message (body, sender, dialog) VALUES ('Hello User!', 1, 1);
