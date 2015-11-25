@@ -8,7 +8,7 @@
                 <paper-tab>Create Account</paper-tab>
             </paper-tabs>
             <iron-pages selected="{{select}}">
-                <x-login-form></x-login-form>
+                <x-login-form sessionState="{{isLogged}}"></x-login-form>
                 <x-register-form></x-register-form>
             </iron-pages>
         </paper-material>

@@ -21,6 +21,12 @@
             <paper-input id="pinput" required label="Password" pattern="[a-zA-Z0-9_-]*" error-message="Allowed: a-z A-Z 0-9 _ -" value="{{password}}"></paper-input>
             <paper-button class="accent-color" raised id="logInButton" on-click="sendRequest">Log In</paper-button>
         </div>
+        <template is="dom-if" if="{{!isHidden}}">
+            <div id="error">
+                <iron-icon icon="error"></iron-icon>
+                <span>Incorrectly entered username or password</span>
+            </div>
+        </template>
     </template>
 
     <script src="x-login-form.js"></script>

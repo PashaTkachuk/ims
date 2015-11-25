@@ -9,7 +9,6 @@
 <body unresolved class="fullbleed layout vertical">
     <span id="browser-sync-binding"></span>
     <template is="dom-bind" id="app">
-
         <paper-drawer-panel id="paperDrawerPanel">
             <!-- Drawer Scroll Header Panel -->
             <paper-header-panel drawer>
@@ -20,11 +19,18 @@
                 </paper-toolbar>
 
                 <template is="dom-if" if="{{user.isLogged}}">
+                    <iron-ajax  auto
+                               url="http://localhost:3000/user"
+                               method="GET"
+                               handle-as="json"
+                               last-response="{{user_account}}"
+                               with-credentials="true">
+                    </iron-ajax>
                     <!-- Drawer Content -->
                     <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
                         <a data-route="inbox" href="{{baseUrl}}">
                             <iron-icon icon="inbox"></iron-icon>
-                            <span>Inbox</span>
+                            <span>Inbox {{user_account.username}}</span>
                         </a>
 
                         <a data-route="contacts" href="contacts">
@@ -63,7 +69,7 @@
                         </section>
 
                         <section data-route="login">
-                            <x-login-register-form></x-login-register-form>
+                            <x-login-register-form sessionState="{{user.isLogged}}"></x-login-register-form>
                         </section>
 
                         <section data-route="chat">

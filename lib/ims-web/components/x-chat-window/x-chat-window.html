@@ -16,24 +16,36 @@
                    with-credentials="true">
         </iron-ajax>
 
-        <paper-listbox id="message-box">
-            <template is="dom-repeat" items="{{messages}}">
-                <template is="dom-if" if="{{isAuthor(item.sender)}}">
-                    <paper-item class="own">
-                        <span>{{item.body}}</span>
-                    </paper-item>
-                </template>
-                <template is="dom-if" if="{{!isAuthor(item.sender)}}">
-                    <paper-item>
-                        <span>{{item.body}}</span>
-                    </paper-item>
-                </template>
-            </template>
-        </paper-listbox>
-        <form is="iron-form" id="form" method="" action="">
-            <paper-input name="message" label="Message" bind-value="{{message}}"></paper-input>
-            <paper-button raised on-click="sendMessage">Send</paper-button>
-        </form>
+        <div id="message-box">
+                <ul class="comment-section">
+                    <template is="dom-repeat" items="{{messages}}" as="message">
+                        <li class$="[[getMessageClass(message.sender)]]">
+
+                            <div class="info">
+                                <a href="#">{{message.author_firstname}}</a>
+                                <span>{{formatTime(message.created_at)}}</span>
+                            </div>
+
+                            <a class="avatar" href="#">
+                                <img src$="/profile/[[message.author_avatar]]" width="35" alt="Profile Avatar" />
+                            </a>
+
+                            <p>{{message.body}}</p>
+
+                        </li>
+                    </template>
+                    <li class="write-new">
+
+                        <form action="" method="post" on-submit="sendMessage">
+                            <textarea placeholder="Write your message here" name="comment" value="{{outbox_message::input}}"></textarea>
+                            <div>
+                                <img src$="/profile/[[user_avatar]]" width="35" alt="Profile Img" />
+                                <button type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+        </div>
     </template>
 
     <script src="/socket.io/socket.io.js"></script>
