@@ -34,7 +34,7 @@ paper-menu a {
 paper-material {
   border-radius: 2px;
   height: 100%;
-  padding: 16px 0 16px 0;
+  padding: 16px;
   width: calc(98.66% - 16px);
   margin: 16px auto;
   background: white;
@@ -64,7 +64,7 @@ x-login-register-form {
 }
 
 .accent-color {
-  background-color: #8BC34A;
+  background-color: #8BC34A !important;
 }
 
 paper-ripple.paper-tab {

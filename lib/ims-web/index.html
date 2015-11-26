@@ -9,6 +9,8 @@
 <body unresolved class="fullbleed layout vertical">
     <span id="browser-sync-binding"></span>
     <template is="dom-bind" id="app">
+        <x-user-session session-state="{{isLogged}}" user="{{user}}"></x-user-session>
+        <x-socket-io user="{{user}}"></x-socket-io>
         <paper-drawer-panel id="paperDrawerPanel">
             <!-- Drawer Scroll Header Panel -->
             <paper-header-panel drawer>
@@ -18,19 +20,13 @@
                     <span class="paper-font-title">Menu</span>
                 </paper-toolbar>
 
-                <template is="dom-if" if="{{user.isLogged}}">
-                    <iron-ajax  auto
-                               url="http://localhost:3000/user"
-                               method="GET"
-                               handle-as="json"
-                               last-response="{{user_account}}"
-                               with-credentials="true">
-                    </iron-ajax>
+                <template is="dom-if" if="{{isLogged}}">
+
                     <!-- Drawer Content -->
                     <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
                         <a data-route="inbox" href="{{baseUrl}}">
                             <iron-icon icon="inbox"></iron-icon>
-                            <span>Inbox {{user_account.username}}</span>
+                            <span>Inbox {{user.username}}</span>
                         </a>
 
                         <a data-route="contacts" href="contacts">
@@ -47,10 +43,10 @@
             </paper-header-panel>
 
             <paper-header-panel main id="headerPanelMain" >
-                <template is="dom-if" if="{{user.isLogged}}">
+                <template is="dom-if" if="{{isLogged}}">
                     <paper-toolbar class="dark-primary-color">
                         <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-                        <span class="flex">IMS</span>
+                        <span class="flex">{{connectionStatus}}</span>
                     </paper-toolbar>
                 </template>
                 <div class="content">
@@ -69,11 +65,11 @@
                         </section>
 
                         <section data-route="login">
-                            <x-login-register-form sessionState="{{user.isLogged}}"></x-login-register-form>
+                            <x-login-register-form sessionState="{{isLogged}}"></x-login-register-form>
                         </section>
 
                         <section data-route="chat">
-                            <x-chat-window></x-chat-window>
+                            <x-chat-window id="x_chat" user="{{user}}" dialog="{{dialog_id}}"></x-chat-window>
                         </section>
 
                     </iron-pages>

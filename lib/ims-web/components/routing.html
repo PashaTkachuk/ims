@@ -9,13 +9,13 @@
         }
         // Routes
         page('*', function(ctx, next) {
-            if (app.user.isLogged && ctx.path != '/login') {
+            if (app.isLogged && ctx.path != '/login') {
                 next();
-            } else if (app.user.isLogged && ctx.path == '/login') {
+            } else if (app.isLogged && ctx.path == '/login') {
                 app.$.toast.text = 'User successful authorized. Redirected you to Home page';
                 app.$.toast.show();
                 page.redirect(app.baseUrl);
-            } else if (!app.user.isLogged && ctx.path == '/login') {
+            } else if (!app.isLogged && ctx.path == '/login') {
                 next();
             }else {
                 app.$.toast.text = 'User unauthorized. Redirected you to Login page';

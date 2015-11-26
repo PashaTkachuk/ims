@@ -8,8 +8,8 @@
 <dom-module id="x-chat-window">
     <link rel="stylesheet" href="x-chat-window.css">
     <template>
-        <iron-ajax auto
-                   url="http://localhost:3000/message/2"
+        <iron-ajax id="getMessagesRequest"
+                   url$="{{serviceMessagesUrl}}"
                    method="GET"
                    handle-as="json"
                    last-response="{{messages}}"
@@ -39,7 +39,7 @@
                         <form action="" method="post" on-submit="sendMessage">
                             <textarea placeholder="Write your message here" name="comment" value="{{outbox_message::input}}"></textarea>
                             <div>
-                                <img src$="/profile/[[user_avatar]]" width="35" alt="Profile Img" />
+                                <img src$="/profile/{{user.avatar}}" width="35" alt="Profile Img" />
                                 <button type="submit">Submit</button>
                             </div>
                         </form>

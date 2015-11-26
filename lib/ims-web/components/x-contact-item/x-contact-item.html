@@ -1,0 +1,30 @@
+<dom-module id="x-contact-item">
+    <link rel="stylesheet" href="x-contact-item.css">
+
+    <template>
+        <iron-ajax id="getContactDialogReq"
+                   url="{{serviceContactUrl}}"
+                   method="GET"
+                   handle-as="json"
+                   on-response="handleResponse"
+                   with-credentials="true">
+        </iron-ajax>
+
+        <div class="item-container">
+            <img src$="/profile/{{contact.avatar}}" alt$="{{contact.username}} profile image">
+            <p>
+                <span class="name primary-text">{{contact.first_name}} {{contact.last_name}}</span><br>
+                <span class="additional-info secondary-text" >
+                    <iron-icon icon="communication:email"></iron-icon> {{contact.email}}
+                </span>
+            </p>
+            <div class="controls">
+                <paper-fab on-click="openChat" id="[[contact.user_id]]" icon="communication:chat" class="accent-color"></paper-fab>
+                <paper-fab icon="delete" class="accent-color"></paper-fab>
+            </div>
+        </div>
+    </template>
+
+    <script src="x-contact-item.js"></script>
+
+</dom-module>

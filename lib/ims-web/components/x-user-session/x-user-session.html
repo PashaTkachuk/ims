@@ -1,0 +1,20 @@
+<dom-module id="x-user-session">
+	<template>
+		<iron-ajax  auto
+					url="http://localhost:3000/session"
+					method="GET"
+					handle-as="json"
+					on-response="handleSessionResponse"
+					with-credentials="true">
+		</iron-ajax>
+		<iron-ajax  id="getUserInfoReq"
+					url="http://localhost:3000/user"
+					method="GET"
+					handle-as="json"
+					last-response="{{user}}"
+					with-credentials="true">
+		</iron-ajax>
+	</template>
+
+	<script src="x-user-session.js"></script>
+</dom-module>

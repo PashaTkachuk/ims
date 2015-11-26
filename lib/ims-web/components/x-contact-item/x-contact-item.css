@@ -1,0 +1,33 @@
+.item-container {
+    display: flex;
+    width: 400px;
+    height: 100px;
+    align-items: center;
+}
+
+.item-container img {
+    width: 80px;
+    border-radius: 50%;
+    margin: 0 20px;
+}
+
+.item-container p{
+    font-size: 20px;
+}
+.item-container .controls {
+    padding-right: 20px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction:column;
+    justify-content: space-around;
+}
+.item-container .controls paper-fab{
+    align-self: flex-end;
+    width: 35px;
+    height: 35px;
+}
+
+.additional-info {
+    font-size: 14px;
+}
