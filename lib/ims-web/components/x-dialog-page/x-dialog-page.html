@@ -1,12 +1,5 @@
-<link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
-<link rel="import" href="../bower_components/paper-item/paper-item.html">
-<link rel="import" href="../bower_components/iron-form/iron-form.html">
-
-<dom-module id="x-chat-window">
-    <link rel="stylesheet" href="x-chat-window.css">
+<dom-module id="x-dialog-page">
+    <link rel="stylesheet" href="x-dialog-page.css">
     <template>
         <iron-ajax id="getMessagesRequest"
                    url$="{{serviceMessagesUrl}}"
@@ -49,6 +42,6 @@
     </template>
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="x-chat-window.js"></script>
+    <script src="x-dialog-page.js"></script>
 
 </dom-module>

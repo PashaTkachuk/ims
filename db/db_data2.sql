@@ -1,8 +1,8 @@
 INSERT INTO user_account (username, password, email, first_name, avatar) VALUES ('test', '098f6bcd4621d373cade4e832627b4f6', 'test2@mail2.com', 'Test', 'avatar_user_3.jpg');
 
-INSERT INTO contact_list (user_id, contact_id) VALUES (1, 3);
-
 INSERT INTO dialog (type) VALUES ('private');
+
+INSERT INTO contact_list (user_id, contact_id, dialog_id) VALUES (1, 3, 2);
 
 INSERT INTO dialog_contact (dialog_id, user_id) VALUES (2, 1);
 

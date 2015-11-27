@@ -10,7 +10,7 @@
     <span id="browser-sync-binding"></span>
     <template is="dom-bind" id="app">
         <x-user-session session-state="{{isLogged}}" user="{{user}}"></x-user-session>
-        <x-socket-io user="{{user}}"></x-socket-io>
+        <x-socket-io session-state="{{isLogged}}"></x-socket-io>
         <paper-drawer-panel id="paperDrawerPanel">
             <!-- Drawer Scroll Header Panel -->
             <paper-header-panel drawer>
@@ -23,18 +23,18 @@
                 <template is="dom-if" if="{{isLogged}}">
 
                     <!-- Drawer Content -->
-                    <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
-                        <a data-route="inbox" href="{{baseUrl}}">
+                    <paper-menu class="list" selected="[[route]]">
+                        <a href="/#/inbox">
                             <iron-icon icon="inbox"></iron-icon>
                             <span>Inbox {{user.username}}</span>
                         </a>
 
-                        <a data-route="contacts" href="contacts">
+                        <a href="/#/contacts">
                             <iron-icon icon="list"></iron-icon>
                             <span>Contact List</span>
                         </a>
 
-                        <a data-route="profile" href="profile">
+                        <a href="/#/profile">
                             <iron-icon icon="account-circle"></iron-icon>
                             <span>Profile</span>
                         </a>
@@ -50,29 +50,26 @@
                     </paper-toolbar>
                 </template>
                 <div class="content">
-                    <iron-pages attr-for-selected="data-route" selected="{{route}}">
+                    <app-router mode="hash">
+                        <!-- matches an exact path -->
+                        <app-route path="/inbox" import="components/x-inbox-page/x-inbox-page.html" bindRouter>
+                        </app-route>
 
-                        <section data-route="inbox">
-                            <paper-material elevation="1">
-                                <x-inbox-page></x-inbox-page>
-                            </paper-material>
-                        </section>
+                        <app-route path="/contacts" import="components/x-contacts-page/x-contacts-page.html" bindRouter>
+                        </app-route>
 
-                        <section data-route="contacts">
-                            <paper-material elevation="1">
-                                <x-contacts-page></x-contacts-page>
-                            </paper-material>
-                        </section>
+                        <app-route path="/dialog/:dialogId" import="/components/x-dialog-page/x-dialog-page.html" bindRouter>
+                        </app-route>
 
-                        <section data-route="login">
-                            <x-login-register-form sessionState="{{isLogged}}"></x-login-register-form>
-                        </section>
+                        <app-route path="/profile" redirect="/inbox">
+                        </app-route>
 
-                        <section data-route="chat">
-                            <x-chat-window id="x_chat" user="{{user}}" dialog="{{dialog_id}}"></x-chat-window>
-                        </section>
+                        <app-route path="/login" import="/components/x-login-register-form/x-login-register-form.html" bindRouter>
+                        </app-route>
 
-                    </iron-pages>
+                        <app-route path="*" redirect="/inbox"></app-route>
+
+                    </app-router>
                 </div>
 
             </paper-header-panel>

@@ -12,6 +12,7 @@
       "secret": "FFRPLXN4kisBn9pdcGPm0ss0yyAsHzfJ",
       "name": "sid",
       "cookie": {
+          "domain": "localhost",
           "path": "/",
           "httpOnly": false,
           "maxAge": null

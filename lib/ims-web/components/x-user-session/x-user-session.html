@@ -11,7 +11,7 @@
 					url="http://localhost:3000/user"
 					method="GET"
 					handle-as="json"
-					last-response="{{user}}"
+					on-response="handleUserResponse"
 					with-credentials="true">
 		</iron-ajax>
 	</template>

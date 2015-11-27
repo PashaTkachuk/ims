@@ -1,31 +1,19 @@
-<dom-module id="x-register-form">
+<dom-module id="x-inbox-page">
     <link rel="stylesheet" href="x-inbox-page.css">
 
     <template>
-        <iron-ajax id="accountRequest"
-            url="{{accountService}}"
-            method="POST"
-            body = '{
-                "username": "{{username}}",
-                "password": "{{password}}"
-            }'
+        <iron-ajax
+            auto
+            url="{{messageService}}"
+            method="GET"
             handle-as="json"
-            on-response="handleResponse"
-            withCredentials="true">
+            last-response="{{dialogs}}"
+            with-credentials="true">
         </iron-ajax>
 
-        <div class="header">
-            <span class="secondary-text">Create account</span><br>
-            <iron-icon class="secondary-text" icon="account-circle"></iron-icon>
-        </div>
-
-        <div class="vertical-section">
-            <paper-input id="uinput" required label="Username" auto-validate pattern="^[a-zA-Z ]+[a-zA-Z0-9_-]*" error-message="Value must start with a letter! Allowed: a-z A-Z 0-9 _ -" value="{{username}}" autofocus></paper-input>
-            <paper-input id="pinput" required label="Password" pattern="[a-zA-Z0-9_-]*" error-message="Allowed: a-z A-Z 0-9 _ -" value="{{password}}"></paper-input>
-            <paper-input id="pcinput" required label="Confirm Your password" on-change="handleConfirm" error-message="Your password and confirmation password do not match." value="{{confirmPassword}}"></paper-input>
-
-            <paper-button class="accent-color" raised on-click="sendRequest">Create account</paper-button>
-        </div>
+        <template is="dom-repeat" items="{{dialogs}}" as="dialog">
+            <x-dialog-item dialog="{{dialog}}"></x-dialog-item>
+        </template>
     </template>
 
     <script src="x-inbox-page.js"></script>
