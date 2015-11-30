@@ -34,5 +34,5 @@ CREATE TABLE IF NOT EXISTS dialog_contact (
 CREATE TABLE IF NOT EXISTS contact_list (
    user_id int NOT NULL REFERENCES user_account (user_id),
    contact_id int NOT NULL REFERENCES user_account (user_id),
-   dialog_id int NOT NULL REFERENCES dialog (dialog_id)
+   dialog_id int DEFAULT NULL REFERENCES dialog (dialog_id)
 );

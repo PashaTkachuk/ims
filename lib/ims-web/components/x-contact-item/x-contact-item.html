@@ -2,6 +2,15 @@
     <link rel="stylesheet" href="x-contact-item.css">
 
     <template>
+        <iron-ajax id="deleteContactReq"
+                   method="DELETE"
+                   body = ""
+                   content-type = "application/json"
+                   handle-as="json"
+                   on-response="handleResponse"
+                   with-credentials="true">
+        </iron-ajax>
+
         <div class="item-container">
             <img src$="/profile/{{contact.avatar}}" alt$="{{contact.username}} profile image">
             <p>
@@ -12,7 +21,7 @@
             </p>
             <div class="controls">
                 <paper-fab on-click="openChat" icon="communication:chat" class="accent-color"></paper-fab>
-                <paper-fab icon="delete" class="accent-color"></paper-fab>
+                <paper-fab on-click="deleteContact" icon="delete" class="accent-color"></paper-fab>
             </div>
         </div>
     </template>

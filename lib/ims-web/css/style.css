@@ -85,3 +85,8 @@ paper-ripple.paper-tab {
 .divider-color {
   background-color: #B6B6B6;
 }
+
+.list paper-badge {
+  top: inherit !important;
+  left: inherit !important;
+}
