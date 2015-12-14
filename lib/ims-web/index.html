@@ -10,7 +10,7 @@
     <span id="browser-sync-binding"></span>
     <template is="dom-bind" id="app">
         <x-user-session session-state="{{isLogged}}" user="{{user}}"></x-user-session>
-        <x-socket-io session-state="{{isLogged}}" user="{{user}}"></x-socket-io>
+        <x-socket-io session-state="{{isLogged}}" user="{{user}}" online-users="{{onlineUsers}}"></x-socket-io>
         <paper-drawer-panel id="paperDrawerPanel">
             <!-- Drawer Scroll Header Panel -->
             <paper-header-panel drawer>
@@ -27,17 +27,11 @@
                         <a href="/#/inbox">
                             <iron-icon icon="inbox"></iron-icon>
                             <span>Inbox</span>
-                            <paper-badge label="8"></paper-badge>
                         </a>
 
                         <a href="/#/contacts">
                             <iron-icon icon="list"></iron-icon>
                             <span>Contacts</span>
-                        </a>
-
-                        <a href="/#/rooms">
-                            <iron-icon icon="list"></iron-icon>
-                            <span>Rooms</span>
                         </a>
 
                         <a href="/#/profile">
@@ -52,7 +46,6 @@
                 <template is="dom-if" if="{{isLogged}}">
                     <paper-toolbar class="dark-primary-color">
                         <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-                        <!--<span class="flex">{{connectionStatus}}</span>-->
                         <div class="flex"></div>
                         <x-account-item user="{{user}}"></x-account-item>
                         <x-log-out session-state="{{isLogged}}"></x-log-out>

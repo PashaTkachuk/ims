@@ -1,3 +1,12 @@
-x-contact-item {
-    max-width: 300px;
+paper-fab#add_contact_but {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+
+#contact_title {
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
 }

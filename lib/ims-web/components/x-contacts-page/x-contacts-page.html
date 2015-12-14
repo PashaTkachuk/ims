@@ -1,7 +1,7 @@
 <dom-module id="x-contacts-page">
-    <link rel="stylesheet" href="x-contacts-page.css">
-
     <template>
+        <link rel="stylesheet" href="x-contacts-page.css">
+
         <iron-ajax id="getContactsReq" auto
             url="http://localhost:3000/contact"
             method="GET"
@@ -20,10 +20,13 @@
                    with-credentials="true">
         </iron-ajax>
         <paper-material elevation="1">
+            <div id="contact_title">
+                <h3>Contacts List</h3>
+                <paper-fab class="accent-color" id="add_contact_but" icon="social:group-add" on-click="openDialog"></paper-fab>
+            </div>
             <template is="dom-repeat" items="{{contacts}}" as="contact">
                 <x-contact-item contact="{{contact}}"></x-contact-item>
             </template>
-            <paper-fab class="accent-color" icon="social:group-add" on-click="openDialog"></paper-fab>
         </paper-material>
         <paper-dialog id="addContactDialog" modal>
             <p>

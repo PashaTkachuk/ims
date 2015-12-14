@@ -18,13 +18,14 @@
     align-items: center;
 }
 
-.dialog-container iron-icon{
-
-}
-
 .dialog-container img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     margin: 0 20px;
+}
+
+#message_author_img{
+    width: 40px;
+    height: 40px;
 }

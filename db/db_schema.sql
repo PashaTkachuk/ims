@@ -20,7 +20,8 @@ CREATE TABLE IF NOT EXISTS message (
    body text NOT NULL,
    sender int NOT NULL REFERENCES user_account (user_id),
    dialog int NOT NULL REFERENCES dialog (dialog_id),
-   created_at timestamp NOT NULL
+   created_at timestamp NOT NULL,
+   readed smallint DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS dialog_contact (

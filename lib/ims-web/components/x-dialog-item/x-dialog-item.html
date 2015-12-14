@@ -5,12 +5,12 @@
         <div class="dialog-container" on-click="openChat">
             <div class="contact">
                 <img src="/profile/{{dialog.avatar}}">
-                <p>{{dialog.first_name}} {{dialog.last_name}}</p>
+                <p>{{dialog.name}}</p>
             </div>
             <div class="message flex">
-                <img src="/profile/{{dialog.message.author_avatar}}">
+                <img id="message_author_img" src="/profile/{{dialog.message.author_avatar}}">
                 <p>{{dialog.message.body}}</p>
-                <span>{{dialog.message.author_firstname}} {{dialog.message.author_lastname}}</span>
+                <span>{{dialog.message.author_name}}</span>
                 <span>{{formatTime(dialog.message.created_at)}}</span>
                 <iron-icon icon="arrow-forward"></iron-icon>
             </div>

@@ -1,8 +1,11 @@
 .item-container {
     display: flex;
-    width: 400px;
+    width: 100%;
     height: 100px;
     align-items: center;
+}
+.item-container:hover {
+    background-color: #cccccc;
 }
 
 .item-container img {
@@ -29,5 +32,21 @@
 }
 
 .additional-info {
+    width: 200px;
     font-size: 14px;
+}
+
+x-contact-item .status_container {
+    position: relative;
+}
+
+x-contact-item #status {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #FFFFFF;
+    background-color: #90a4ae;
+    position: absolute;
+    bottom: 2px;
+    left: 29px;
 }

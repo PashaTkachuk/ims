@@ -10,10 +10,11 @@
             last-response="{{dialogs}}"
             with-credentials="true">
         </iron-ajax>
-
-        <template is="dom-repeat" items="{{dialogs}}" as="dialog">
-            <x-dialog-item dialog="{{dialog}}"></x-dialog-item>
-        </template>
+        <paper-material elevation="1">
+            <template is="dom-repeat" items="{{dialogs}}" as="dialog">
+                <x-dialog-item dialog="{{dialog}}"></x-dialog-item>
+            </template>
+        </paper-material>
     </template>
 
     <script src="x-inbox-page.js"></script>
