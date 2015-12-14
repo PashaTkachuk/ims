@@ -1,14 +1,11 @@
 CREATE TABLE IF NOT EXISTS user_account (
    user_id  serial PRIMARY KEY,
-   username varchar(32) NOT NULL,
-   password varchar(64) NOT NULL,
    email varchar(64) NOT NULL,
-   first_name varchar(64) DEFAULT NULL,
-   last_name varchar(64) DEFAULT NULL,
+   password varchar(64) NOT NULL,
+   name varchar(128) DEFAULT NULL,
    avatar varchar(128) DEFAULT 'default_avatar.jpg',
-   skype varchar(32) DEFAULT NULL,
    phone varchar(32) DEFAULT NULL,
-   CONSTRAINT unique_username UNIQUE(username),
+   status varchar(32) DEFAULT NULL,
    CONSTRAINT unique_email UNIQUE(email)
 );
 

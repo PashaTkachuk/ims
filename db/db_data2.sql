@@ -1,4 +1,4 @@
-INSERT INTO user_account (username, password, email, first_name, avatar) VALUES ('test', '098f6bcd4621d373cade4e832627b4f6', 'test2@mail2.com', 'Test', 'avatar_user_3.jpg');
+INSERT INTO user_account (password, email, name, avatar) VALUES ('098f6bcd4621d373cade4e832627b4f6', 'test2@mail2.com', 'Test', 'avatar_user_3.jpg');
 
 INSERT INTO dialog (type) VALUES ('private');
 

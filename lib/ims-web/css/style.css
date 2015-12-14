@@ -90,3 +90,8 @@ paper-ripple.paper-tab {
   top: inherit !important;
   left: inherit !important;
 }
+
+x-profile-page {
+  display: block;
+  width: 600px;
+}

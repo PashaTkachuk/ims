@@ -10,7 +10,7 @@
     <span id="browser-sync-binding"></span>
     <template is="dom-bind" id="app">
         <x-user-session session-state="{{isLogged}}" user="{{user}}"></x-user-session>
-        <x-socket-io session-state="{{isLogged}}"></x-socket-io>
+        <x-socket-io session-state="{{isLogged}}" user="{{user}}"></x-socket-io>
         <paper-drawer-panel id="paperDrawerPanel">
             <!-- Drawer Scroll Header Panel -->
             <paper-header-panel drawer>
@@ -26,13 +26,18 @@
                     <paper-menu class="list" selected="[[route]]">
                         <a href="/#/inbox">
                             <iron-icon icon="inbox"></iron-icon>
-                            <span>Inbox {{user.username}}</span>
+                            <span>Inbox</span>
                             <paper-badge label="8"></paper-badge>
                         </a>
 
                         <a href="/#/contacts">
                             <iron-icon icon="list"></iron-icon>
-                            <span>Contact List</span>
+                            <span>Contacts</span>
+                        </a>
+
+                        <a href="/#/rooms">
+                            <iron-icon icon="list"></iron-icon>
+                            <span>Rooms</span>
                         </a>
 
                         <a href="/#/profile">
@@ -43,7 +48,7 @@
                 </template>
             </paper-header-panel>
 
-            <paper-header-panel main id="headerPanelMain" >
+            <paper-header-panel main id="headerPanelMain">
                 <template is="dom-if" if="{{isLogged}}">
                     <paper-toolbar class="dark-primary-color">
                         <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
@@ -62,7 +67,7 @@
                         <app-route path="/dialog/:dialogId" import="/components/x-dialog-page/x-dialog-page.html" bindRouter>
                         </app-route>
 
-                        <app-route path="/profile" redirect="/inbox">
+                        <app-route path="/profile" import="components/x-profile-page/x-profile-page.html" bindRouter>
                         </app-route>
 
                         <app-route path="/login" import="/components/x-login-register-form/x-login-register-form.html" bindRouter>

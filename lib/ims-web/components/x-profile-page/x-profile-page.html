@@ -1,0 +1,61 @@
+<dom-module id="x-profile-page">
+    <link rel="stylesheet" href="x-profile-page.css">
+    <template>
+        <iron-ajax id="changeProfileReq"
+                   url="http://localhost:3000/user"
+                   method="PUT"
+                   body = "{{reqBody}}"
+                   content-type = "application/json"
+                   handle-as="json"
+                   on-response="handleResponse"
+                   with-credentials="true">
+        </iron-ajax>
+
+        <paper-material elevation="1">
+            <h3>Profile Info</h3>
+            <img id="profile_img" src=""/>
+            <div class="clear"></div>
+            <div class="profile">
+                <div class="title">Email:</div><div>{{user.email}}</div><div class="controls"><paper-fab class="accent-color" icon="create" on-click="openEditEmailDialog"></paper-fab> </div>
+            </div>
+            <div class="profile">
+                <div class="title">Name:</div><div>{{user.name}}</div><div class="controls"><paper-fab class="accent-color" icon="create" on-click="openEditNameDialog"></paper-fab> </div>
+            </div>
+            <div class="profile">
+                <div class="title">Phone:</div><div>{{user.phone}}</div><div class="controls"><paper-fab class="accent-color" icon="create" on-click="openEditPhoneDialog"></paper-fab> </div>
+            </div>
+        </paper-material>
+        <paper-dialog id="editEmailDial" modal>
+            <h2>Change your email</h2>
+            <paper-input label="Enter new Email" value="{{user.email}}"></paper-input>
+            <div class="buttons">
+                <paper-button dialog-dismiss>Cancel</paper-button>
+                <paper-button dialog-confirm on-click="saveEmail">Save</paper-button>
+            </div>
+        </paper-dialog>
+
+        <paper-dialog id="editNameDial" modal>
+            <h2>Change your email</h2>
+            <paper-input label="Change your name" value="{{user.name}}"></paper-input>
+            <div class="buttons">
+                <paper-button dialog-dismiss>Cancel</paper-button>
+                <paper-button dialog-confirm on-click="saveName">Save</paper-button>
+            </div>
+        </paper-dialog>
+
+        <paper-dialog id="editPhoneDial" modal>
+            <h2>Change your email</h2>
+            <paper-input label="Change your phone number" value="{{user.phone}}"></paper-input>
+            <div class="buttons">
+                <paper-button dialog-dismiss>Cancel</paper-button>
+                <paper-button dialog-confirm on-click="savePhone">Save</paper-button>
+            </div>
+        </paper-dialog>
+
+        <paper-toast id="successUpdate" text="Success!"></paper-toast>
+        <paper-toast id="errorUpdate" text="Error!"></paper-toast>
+    </template>
+
+    <script src="x-profile-page.js"></script>
+
+</dom-module>

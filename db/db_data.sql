@@ -1,8 +1,8 @@
 --create 'admin' user with 'admin' password
-INSERT INTO user_account (username, password, email, first_name, avatar) VALUES ('admin', '21232f297a57a5a743894a0e4a801fc3', 'test@mail.com', 'Admin', 'avatar_user_1.jpg');
+INSERT INTO user_account (password, email, name, avatar) VALUES ('21232f297a57a5a743894a0e4a801fc3', 'test@mail.com', 'Admin', 'avatar_user_1.jpg');
 
 --create 'user' user with 'user' password
-INSERT INTO user_account (username, password, email, first_name, avatar) VALUES ('user', 'ee11cbb19052e40b07aac0ca060c23ee', 'test@mail2.com', 'User', 'avatar_user_2.jpg');
+INSERT INTO user_account (password, email, name, avatar) VALUES ('ee11cbb19052e40b07aac0ca060c23ee', 'test@mail2.com', 'User', 'avatar_user_2.jpg');
 
 INSERT INTO dialog (type) VALUES ('private');
 
