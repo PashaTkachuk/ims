@@ -11,9 +11,20 @@
                    with-credentials="true">
         </iron-ajax>
 
+        <iron-ajax id="uploadNewAvatar"
+                   url="http://localhost:3000/user/avatar"
+                   method="POST"
+                   handle-as="json"
+                   on-response="handleUploadResponse"
+                   with-credentials="true">
+        </iron-ajax>
+
         <paper-material elevation="1">
             <h3>Profile Info</h3>
-            <img id="profile_img" src=""/>
+            <div class="file_upload">
+                <input type="file" id="file_avatar" on-change="changeProfileImage"/>
+                <img id="profile_img" src=""/>
+            </div>
             <div class="clear"></div>
             <div class="profile">
                 <div class="title">Email:</div><div>{{user.email}}</div><div class="controls"><paper-fab class="accent-color" icon="create" on-click="openEditEmailDialog"></paper-fab> </div>
@@ -23,6 +34,9 @@
             </div>
             <div class="profile">
                 <div class="title">Phone:</div><div>{{user.phone}}</div><div class="controls"><paper-fab class="accent-color" icon="create" on-click="openEditPhoneDialog"></paper-fab> </div>
+            </div>
+            <div class="profile">
+                <div class="title">Password</div><div class="controls"><paper-fab class="accent-color" icon="create" on-click="openEditPasswordDialog"></paper-fab> </div>
             </div>
         </paper-material>
         <paper-dialog id="editEmailDial" modal>
@@ -49,6 +63,16 @@
             <div class="buttons">
                 <paper-button dialog-dismiss>Cancel</paper-button>
                 <paper-button dialog-confirm on-click="savePhone">Save</paper-button>
+            </div>
+        </paper-dialog>
+
+        <paper-dialog id="editPasswordDial" modal>
+            <h2>Change your password</h2>
+            <paper-input id="pinput" type="password" label="Password" pattern="[a-zA-Z0-9_-]*" error-message="Allowed: a-z A-Z 0-9 _ -" value="{{password}}"></paper-input>
+            <paper-input id="pcinput" type="password" label="Confirm Your password" on-change="handleConfirm" error-message="Your password and confirmation password do not match." value="{{confirmPassword}}"></paper-input>
+            <div class="buttons">
+                <paper-button dialog-dismiss>Cancel</paper-button>
+                <paper-button dialog-confirm on-click="savePassword">Save</paper-button>
             </div>
         </paper-dialog>
 

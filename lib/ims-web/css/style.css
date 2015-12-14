@@ -5,14 +5,6 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
-x-chat-window {
-  display: block;
-  width: 800px;
-  margin: 20px auto;
-  background-color: #ffffff;
-  padding: 10px;
-}
-
 paper-menu a {
   text-decoration: none;
   display: -ms-flexbox;

@@ -52,7 +52,10 @@
                 <template is="dom-if" if="{{isLogged}}">
                     <paper-toolbar class="dark-primary-color">
                         <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-                        <span class="flex">{{connectionStatus}}</span>
+                        <!--<span class="flex">{{connectionStatus}}</span>-->
+                        <div class="flex"></div>
+                        <x-account-item user="{{user}}"></x-account-item>
+                        <x-log-out session-state="{{isLogged}}"></x-log-out>
                     </paper-toolbar>
                 </template>
                 <div class="content">

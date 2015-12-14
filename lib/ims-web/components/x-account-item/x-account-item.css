@@ -1,0 +1,31 @@
+.account_item {
+    position: relative;
+}
+.account_item img {
+    border-radius: 50%;
+}
+.account_item:hover {
+    cursor: pointer;
+}
+.account_item #status {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #FFFFFF;
+    background-color: #006600;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#selectedStatus {
+    position: absolute;
+    z-index: 9999;
+    top: 34px;
+    left: -91px;
+    visibility: hidden;
+}
+
+.account_item .status_container:hover #selectedStatus {
+    visibility: visible;
+}

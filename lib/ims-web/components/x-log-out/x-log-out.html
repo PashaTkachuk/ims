@@ -1,0 +1,15 @@
+<dom-module id="x-log-out">
+	<template>
+		<iron-ajax	id="logOutReq"
+					url="http://localhost:3000/session"
+					method="DELETE"
+					handle-as="json"
+					on-response="handleLogOutResponse"
+					with-credentials="true">
+		</iron-ajax>
+
+		<paper-icon-button icon="exit-to-app" on-click="sendReq"></paper-icon-button>
+	</template>
+
+	<script src="x-log-out.js"></script>
+</dom-module>

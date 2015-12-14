@@ -1,0 +1,18 @@
+<dom-module id="x-account-item">
+    <link rel="stylesheet" href="x-account-item.css">
+    <template>
+        <div class="account_item">
+            <div class="status_container">
+                <div id="status" style$="background-color: [[bgColor]]"></div>
+                <paper-listbox id="selectedStatus" selected="0" on-iron-select="changeStatus">
+                    <paper-item>Online</paper-item>
+                    <paper-item>Invisible</paper-item>
+                </paper-listbox>
+            </div>
+            <img src$="/profile/[[user.avatar]]" width="50" alt="Profile Avatar" />
+        </div>
+    </template>
+
+    <script src="x-account-item.js"></script>
+
+</dom-module>

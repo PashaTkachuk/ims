@@ -19,10 +19,12 @@
                    on-response="handleResponse"
                    with-credentials="true">
         </iron-ajax>
-        <template is="dom-repeat" items="{{contacts}}" as="contact">
-            <x-contact-item contact="{{contact}}"></x-contact-item>
-        </template>
-        <paper-fab class="accent-color" icon="social:group-add" on-click="openDialog"></paper-fab>
+        <paper-material elevation="1">
+            <template is="dom-repeat" items="{{contacts}}" as="contact">
+                <x-contact-item contact="{{contact}}"></x-contact-item>
+            </template>
+            <paper-fab class="accent-color" icon="social:group-add" on-click="openDialog"></paper-fab>
+        </paper-material>
         <paper-dialog id="addContactDialog" modal>
             <p>
                 <paper-input label="Enter contact email" value="{{contact_email}}"></paper-input>
