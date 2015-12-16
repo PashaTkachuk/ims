@@ -1,36 +1,49 @@
-CREATE TABLE IF NOT EXISTS user_account (
-   user_id  serial PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS users (
+   user_id serial PRIMARY KEY,
    email varchar(64) NOT NULL,
-   password varchar(64) NOT NULL,
-   name varchar(128) DEFAULT NULL,
-   avatar varchar(128) DEFAULT 'default_avatar.jpg',
-   phone varchar(32) DEFAULT NULL,
-   status varchar(32) DEFAULT NULL,
+   password text NOT NULL,
    CONSTRAINT unique_email UNIQUE(email)
 );
 
-CREATE TABLE IF NOT EXISTS dialog (
-   dialog_id  serial PRIMARY KEY,
-   name varchar(32) DEFAULT NULL,
-   type varchar(32) NOT NULL
+
+CREATE TABLE IF NOT EXISTS user_status (
+   status_id serial PRIMARY KEY,
+   status varchar(32) DEFAULT 'offline'
+);
+
+CREATE TABLE IF NOT EXISTS profile (
+   user_id int NOT NULL REFERENCES users ON DELETE CASCADE,
+   name varchar(128) DEFAULT NULL,
+   avatar varchar(128) DEFAULT 'default_avatar.jpg',
+   phone varchar(32) DEFAULT NULL,
+   status_id int NOT NULL REFERENCES user_status ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS user_roster (
+   roster_id serial PRIMARY KEY,
+   user_id int NOT NULL REFERENCES users ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS roster (
+   roster_id int NOT NULL REFERENCES user_roster ON DELETE CASCADE,
+   contact_id int NOT NULL REFERENCES users (user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS room (
+   room_id serial PRIMARY KEY,
+   name varchar(128) DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS room_users (
+   room_id int NOT NULL REFERENCES room,
+   user_id int REFERENCES users ON DELETE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS message (
    message_id  serial PRIMARY KEY,
    body text NOT NULL,
-   sender int NOT NULL REFERENCES user_account (user_id),
-   dialog int NOT NULL REFERENCES dialog (dialog_id),
+   sender int NOT NULL REFERENCES users ON DELETE CASCADE,
+   room_id int NOT NULL REFERENCES room ON DELETE CASCADE,
    created_at timestamp NOT NULL,
    readed smallint DEFAULT 0
-);
-
-CREATE TABLE IF NOT EXISTS dialog_contact (
-   dialog_id int NOT NULL REFERENCES dialog (dialog_id),
-   user_id int NOT NULL REFERENCES user_account (user_id)
-);
-
-CREATE TABLE IF NOT EXISTS contact_list (
-   user_id int NOT NULL REFERENCES user_account (user_id),
-   contact_id int NOT NULL REFERENCES user_account (user_id),
-   dialog_id int DEFAULT NULL REFERENCES dialog (dialog_id)
 );
