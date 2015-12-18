@@ -18,7 +18,7 @@ INSERT INTO roster VALUES (1, 2);
 
 INSERT INTO roster VALUES (2, 1);
 
-INSERT INTO room (name) VALUES ('Admin chat');
+INSERT INTO room (name, last_message_id, last_updated_at) VALUES ('Admin chat', 2, to_timestamp(1448287343));
 
 INSERT INTO room_users VALUES (1, 1);
 

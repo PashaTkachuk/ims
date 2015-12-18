@@ -1,14 +1,6 @@
 <dom-module id="x-dialog-page">
-    <link rel="stylesheet" href="x-dialog-page.css">
     <template>
-        <iron-ajax id="getMessagesRequest"
-                   url$="{{serviceMessagesUrl}}"
-                   method="GET"
-                   handle-as="json"
-                   last-response="{{messages}}"
-                   with-credentials="true">
-        </iron-ajax>
-
+        <link rel="stylesheet" href="x-dialog-page.css">
         <div id="message-box">
                 <ul class="comment-section">
                     <template is="dom-repeat" items="{{messages}}" as="message">
@@ -20,7 +12,7 @@
                             </div>
 
                             <a class="avatar" href="#">
-                                <img src$="/profile/[[message.author_avatar]]" width="35" alt="Profile Avatar" />
+                                <img src="/profile/[[message.author_avatar]]" width="35" alt="Profile Avatar" />
                             </a>
 
                             <p>{{message.body}}</p>
@@ -41,7 +33,5 @@
         </div>
     </template>
 
-    <script src="/socket.io/socket.io.js"></script>
     <script src="x-dialog-page.js"></script>
-
 </dom-module>

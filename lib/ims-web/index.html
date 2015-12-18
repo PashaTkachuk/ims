@@ -9,8 +9,8 @@
 <body unresolved class="fullbleed layout vertical">
     <span id="browser-sync-binding"></span>
     <template is="dom-bind" id="app">
-        <x-user-session session-state="{{isLogged}}" user="{{user}}"></x-user-session>
         <x-socket-io session-state="{{isLogged}}" user="{{user}}" online-users="{{onlineUsers}}"></x-socket-io>
+        <x-user-session session-state="{{isLogged}}" user="{{user}}"></x-user-session>
         <paper-drawer-panel id="paperDrawerPanel">
             <!-- Drawer Scroll Header Panel -->
             <paper-header-panel drawer>
@@ -76,10 +76,6 @@
 
             </paper-header-panel>
         </paper-drawer-panel>
-
-        <paper-toast id="toast">
-            <span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok</span>
-        </paper-toast>
     </template>
 
     <script src="js/app.js"></script>

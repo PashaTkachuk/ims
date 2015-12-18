@@ -31,7 +31,9 @@ CREATE TABLE IF NOT EXISTS roster (
 
 CREATE TABLE IF NOT EXISTS room (
    room_id serial PRIMARY KEY,
-   name varchar(128) DEFAULT NULL
+   name varchar(128) DEFAULT NULL,
+   last_message_id int DEFAULT NULL,
+   last_updated_at timestamp DEFAULT NULL
 );
 
 CREATE TABLE IF NOT EXISTS room_users (

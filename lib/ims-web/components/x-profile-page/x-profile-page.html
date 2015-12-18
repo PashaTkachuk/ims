@@ -1,24 +1,6 @@
 <dom-module id="x-profile-page">
     <link rel="stylesheet" href="x-profile-page.css">
     <template>
-        <iron-ajax id="changeProfileReq"
-                   url="http://localhost:3000/user"
-                   method="PUT"
-                   body = "{{reqBody}}"
-                   content-type = "application/json"
-                   handle-as="json"
-                   on-response="handleResponse"
-                   with-credentials="true">
-        </iron-ajax>
-
-        <iron-ajax id="uploadNewAvatar"
-                   url="http://localhost:3000/user/avatar"
-                   method="POST"
-                   handle-as="json"
-                   on-response="handleUploadResponse"
-                   with-credentials="true">
-        </iron-ajax>
-
         <paper-material elevation="1">
             <h3>Profile Info</h3>
             <div class="file_upload">
@@ -27,7 +9,7 @@
             </div>
             <div class="clear"></div>
             <div class="profile">
-                <div class="title">Email:</div><div>{{user.email}}</div><div class="controls"><paper-fab class="accent-color" icon="create" on-click="openEditEmailDialog"></paper-fab> </div>
+                <div class="title">Email:</div><div>{{user.email}}</div><div class="controls"></div>
             </div>
             <div class="profile">
                 <div class="title">Name:</div><div>{{user.name}}</div><div class="controls"><paper-fab class="accent-color" icon="create" on-click="openEditNameDialog"></paper-fab> </div>

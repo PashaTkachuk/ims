@@ -2,15 +2,6 @@
     <link rel="stylesheet" href="x-login-form.css">
 
     <template>
-        <iron-ajax id="sessionRequest"
-            url="{{sessionService}}"
-            method="POST"
-            body = "{{requestBody}}"
-            content-type = "application/json"
-            handle-as="json"
-            on-response="handleResponse"
-            with-credentials="true">
-        </iron-ajax>
         <div class="header">
             <span class="secondary-text">Log in using your email</span><br>
             <iron-icon class="secondary-text" icon="account-circle"></iron-icon>

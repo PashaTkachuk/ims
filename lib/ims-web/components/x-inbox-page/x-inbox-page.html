@@ -1,15 +1,6 @@
 <dom-module id="x-inbox-page">
-    <link rel="stylesheet" href="x-inbox-page.css">
-
     <template>
-        <iron-ajax
-            auto
-            url="{{messageService}}"
-            method="GET"
-            handle-as="json"
-            last-response="{{dialogs}}"
-            with-credentials="true">
-        </iron-ajax>
+        <link rel="stylesheet" href="x-inbox-page.css">
         <paper-material elevation="1">
             <template is="dom-repeat" items="{{dialogs}}" as="dialog">
                 <x-dialog-item dialog="{{dialog}}"></x-dialog-item>
