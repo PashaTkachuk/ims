@@ -1,31 +1,13 @@
 <dom-module id="x-contacts-page">
     <template>
         <link rel="stylesheet" href="x-contacts-page.css">
-
-        <iron-ajax id="getContactsReq"
-            url="http://localhost:3000/contact"
-            method="GET"
-            handle-as="json"
-            last-response="{{contacts}}"
-            with-credentials="true">
-        </iron-ajax>
-
-        <iron-ajax id="addContactReq"
-                   url="http://localhost:3000/contact"
-                   method="POST"
-                   body = "{{reqBody}}"
-                   content-type = "application/json"
-                   handle-as="json"
-                   on-response="handleResponse"
-                   with-credentials="true">
-        </iron-ajax>
         <paper-material elevation="1">
             <div id="contact_title">
                 <h3>Contacts List</h3>
                 <paper-fab class="accent-color" id="add_contact_but" icon="social:group-add" on-click="openDialog"></paper-fab>
             </div>
             <template is="dom-repeat" items="{{contacts}}" as="contact">
-                <x-contact-item contact="{{contact}}"></x-contact-item>
+                <x-contact-item contact="{{contact}}" user="{{user}}"></x-contact-item>
             </template>
         </paper-material>
         <paper-dialog id="addContactDialog" modal>

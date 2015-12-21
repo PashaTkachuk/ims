@@ -2,13 +2,13 @@ INSERT INTO users (email, password) VALUES ('admin@mail.com', crypt('admin', gen
 
 INSERT INTO users (email, password) VALUES ('test@mail.com', crypt('test', gen_salt('bf')));
 
-INSERT INTO user_status (status) VALUES ('offline');
+INSERT INTO user_status (user_id, status) VALUES (1, 'offline');
 
-INSERT INTO user_status (status) VALUES ('offline');
+INSERT INTO user_status (user_id, status) VALUES (2, 'offline');
 
-INSERT INTO profile VALUES (1, 'Admin', 'avatar_user_1', '0989999999', 1);
+INSERT INTO profile VALUES (1, 'Admin', 'avatar_user_1', '0989999999');
 
-INSERT INTO profile VALUES (2, 'Test', 'avatar_user_2.jpg', '0967777777', 2);
+INSERT INTO profile VALUES (2, 'Test', 'avatar_user_2.jpg', '0967777777');
 
 INSERT INTO user_roster (user_id) VALUES (1);
 
@@ -18,7 +18,7 @@ INSERT INTO roster VALUES (1, 2);
 
 INSERT INTO roster VALUES (2, 1);
 
-INSERT INTO room (name, last_message_id, last_updated_at) VALUES ('Admin chat', 2, to_timestamp(1448287343));
+INSERT INTO room (name, owner_id, last_message_id, last_updated_at) VALUES ('Admin chat', 1, 2, to_timestamp(1448287343));
 
 INSERT INTO room_users VALUES (1, 1);
 

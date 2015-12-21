@@ -5,9 +5,9 @@ CREATE TABLE IF NOT EXISTS users (
    CONSTRAINT unique_email UNIQUE(email)
 );
 
-
 CREATE TABLE IF NOT EXISTS user_status (
    status_id serial PRIMARY KEY,
+   user_id int NOT NULL REFERENCES users ON DELETE CASCADE,
    status varchar(32) DEFAULT 'offline'
 );
 
@@ -15,8 +15,7 @@ CREATE TABLE IF NOT EXISTS profile (
    user_id int NOT NULL REFERENCES users ON DELETE CASCADE,
    name varchar(128) DEFAULT NULL,
    avatar varchar(128) DEFAULT 'default_avatar.jpg',
-   phone varchar(32) DEFAULT NULL,
-   status_id int NOT NULL REFERENCES user_status ON DELETE CASCADE
+   phone varchar(32) DEFAULT NULL
 );
 
 CREATE TABLE IF NOT EXISTS user_roster (
@@ -32,6 +31,7 @@ CREATE TABLE IF NOT EXISTS roster (
 CREATE TABLE IF NOT EXISTS room (
    room_id serial PRIMARY KEY,
    name varchar(128) DEFAULT NULL,
+   owner_id int REFERENCES users ON DELETE NO ACTION,
    last_message_id int DEFAULT NULL,
    last_updated_at timestamp DEFAULT NULL
 );
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS room_users (
 CREATE TABLE IF NOT EXISTS message (
    message_id  serial PRIMARY KEY,
    body text NOT NULL,
-   sender int NOT NULL REFERENCES users ON DELETE CASCADE,
+   sender int NOT NULL REFERENCES users ON DELETE SET NULL,
    room_id int NOT NULL REFERENCES room ON DELETE CASCADE,
    created_at timestamp NOT NULL,
    readed smallint DEFAULT 0

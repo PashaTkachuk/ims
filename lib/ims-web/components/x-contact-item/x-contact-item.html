@@ -1,16 +1,6 @@
 <dom-module id="x-contact-item">
     <template>
         <link rel="stylesheet" href="x-contact-item.css">
-
-        <iron-ajax id="deleteContactReq"
-                   method="DELETE"
-                   body = ""
-                   content-type = "application/json"
-                   handle-as="json"
-                   on-response="handleResponse"
-                   with-credentials="true">
-        </iron-ajax>
-
         <div class="item-container">
             <div class="status_container">
                 <img src$="/profile/{{contact.avatar}}" alt$="{{contact.email}} profile image">
