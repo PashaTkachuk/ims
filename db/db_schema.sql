@@ -46,6 +46,6 @@ CREATE TABLE IF NOT EXISTS message (
    body text NOT NULL,
    sender int NOT NULL REFERENCES users ON DELETE SET NULL,
    room_id int NOT NULL REFERENCES room ON DELETE CASCADE,
-   created_at timestamp NOT NULL,
+   created_at timestamptz NOT NULL,
    readed smallint DEFAULT 0
 );
