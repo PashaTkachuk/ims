@@ -2,29 +2,18 @@
     <link rel="stylesheet" href="x-register-form.css">
 
     <template>
-        <iron-ajax id="accountRequest"
-            url="{{accountService}}"
-            method="POST"
-            body = '{
-                "email": "{{email}}",
-                "password": "{{password}}"
-            }'
-            handle-as="json"
-            on-response="handleResponse"
-            withCredentials="true">
-        </iron-ajax>
-
         <div class="header">
             <span class="secondary-text">Create account</span><br>
             <iron-icon class="secondary-text" icon="account-circle"></iron-icon>
         </div>
 
         <div class="vertical-section">
-            <paper-input id="einput" required label="Email" type="email" value="{{email}}" autofocus></paper-input>
-            <paper-input id="pinput" required label="Password" pattern="[a-zA-Z0-9_-]*" error-message="Allowed: a-z A-Z 0-9 _ -" value="{{password}}"></paper-input>
-            <paper-input id="pcinput" required label="Confirm Your password" on-change="handleConfirm" error-message="Your password and confirmation password do not match." value="{{confirmPassword}}"></paper-input>
+            <paper-input id="einput" required type="email" label="Email" type="email" value="{{email}}"></paper-input>
+            <paper-input id="pinput" required type="password" label="Password" pattern="[a-zA-Z0-9_-]*" error-message="Allowed: a-z A-Z 0-9 _ -" value="{{password}}"></paper-input>
+            <paper-input id="pcinput" required type="password" label="Confirm Your password" on-change="handleConfirm" error-message="Your password and confirmation password do not match." value="{{confirmPassword}}"></paper-input>
 
             <paper-button class="accent-color" raised on-click="sendRequest">Create account</paper-button>
+            <paper-toast id="createTokenToast" text="Confirm your mail!"></paper-toast>
         </div>
     </template>
 

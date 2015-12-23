@@ -1,12 +1,12 @@
 {
   "env": "dev",
   "server": {
-      "host": "localhost",
+      "host": "10.1.19.42",
       "port": 3000
   },
   "web_server": {
-    "host": "localhost",
-    "port": 3030
+    "host": "10.1.19.42",
+    "port": 80
   },
   "session": {
       "secret": "FFRPLXN4kisBn9pdcGPm0ss0yyAsHzfJ",
@@ -32,10 +32,11 @@
   	"database": "ims_db"
   },
   "mail": {
-    "service": "Gmail",
+    "host": "smtp.mandrillapp.com",
+    "port": 587,
     "auth": {
-        "user": "test.tkachuk@gmail.com",
-        "pass": "test159753"
+      "user": "pavlov.tkachuk@gmail.com",
+      "pass": "kp1Vfl5s5BwZ6uZMAhukSw"
     }
   },
   "cache": {

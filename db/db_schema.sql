@@ -6,7 +6,6 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 CREATE TABLE IF NOT EXISTS user_status (
-   status_id serial PRIMARY KEY,
    user_id int NOT NULL REFERENCES users ON DELETE CASCADE,
    status varchar(32) DEFAULT 'offline'
 );
@@ -30,10 +29,8 @@ CREATE TABLE IF NOT EXISTS roster (
 
 CREATE TABLE IF NOT EXISTS room (
    room_id serial PRIMARY KEY,
-   name varchar(128) DEFAULT NULL,
-   owner_id int REFERENCES users ON DELETE NO ACTION,
-   last_message_id int DEFAULT NULL,
-   last_updated_at timestamp DEFAULT NULL
+   name varchar(128) NOT NULL,
+   owner_id int REFERENCES users ON DELETE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS room_users (
@@ -48,4 +45,10 @@ CREATE TABLE IF NOT EXISTS message (
    room_id int NOT NULL REFERENCES room ON DELETE CASCADE,
    created_at timestamptz NOT NULL,
    readed smallint DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS token (
+   email varchar(64) NOT NULL,
+   token varchar(128) NOT NULL,
+   CONSTRAINT token_unique_email UNIQUE(email)
 );

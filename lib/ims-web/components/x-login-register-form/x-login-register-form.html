@@ -11,6 +11,8 @@
                 <x-login-form sessionState="{{isLogged}}"></x-login-form>
                 <x-register-form></x-register-form>
             </iron-pages>
+            <paper-toast id="checkTokenToast" text="Invalid token!"></paper-toast>
+            <paper-toast id="userCreatedToast" text="User created! You can login."></paper-toast>
         </paper-material>
     </template>
 

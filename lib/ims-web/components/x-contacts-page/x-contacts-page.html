@@ -6,7 +6,7 @@
                 <h3>Contacts List</h3>
                 <paper-fab class="accent-color" id="add_contact_but" icon="social:group-add" on-click="openDialog"></paper-fab>
             </div>
-            <template is="dom-repeat" items="{{contacts}}" as="contact">
+            <template is="dom-repeat" id="contact_list" items="{{contacts}}" as="contact">
                 <x-contact-item contact="{{contact}}" user="{{user}}"></x-contact-item>
             </template>
         </paper-material>

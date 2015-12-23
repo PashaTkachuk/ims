@@ -87,3 +87,7 @@ x-profile-page {
   display: block;
   width: 600px;
 }
+
+paper-toast {
+  z-index: 999;
+}

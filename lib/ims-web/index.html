@@ -24,9 +24,9 @@
 
                     <!-- Drawer Content -->
                     <paper-menu class="list" selected="[[route]]">
-                        <a href="/#/inbox">
-                            <iron-icon icon="inbox"></iron-icon>
-                            <span>Inbox</span>
+                        <a href="/#/history">
+                            <iron-icon icon="history"></iron-icon>
+                            <span>History</span>
                         </a>
 
                         <a href="/#/contacts">
@@ -54,7 +54,7 @@
                 <div class="content">
                     <app-router mode="hash">
                         <!-- matches an exact path -->
-                        <app-route path="/inbox" import="components/x-inbox-page/x-inbox-page.html" bindRouter>
+                        <app-route path="/history" import="components/x-history-page/x-history-page.html" bindRouter>
                         </app-route>
 
                         <app-route path="/contacts" import="components/x-contacts-page/x-contacts-page.html" bindRouter>
@@ -69,7 +69,10 @@
                         <app-route path="/login" import="/components/x-login-register-form/x-login-register-form.html" bindRouter>
                         </app-route>
 
-                        <app-route path="*" redirect="/inbox"></app-route>
+                        <app-route path="/login/:tokenValue" import="/components/x-login-register-form/x-login-register-form.html" bindRouter>
+                        </app-route>
+
+                        <app-route path="*" redirect="/history"></app-route>
 
                     </app-router>
                 </div>
