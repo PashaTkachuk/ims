@@ -34,8 +34,9 @@ CREATE TABLE IF NOT EXISTS room (
 );
 
 CREATE TABLE IF NOT EXISTS room_users (
-   room_id int NOT NULL REFERENCES room,
-   user_id int REFERENCES users ON DELETE SET NULL
+   room_id int NOT NULL REFERENCES room ON DELETE CASCADE,
+   user_id int REFERENCES users ON DELETE CASCADE,
+   CONSTRAINT room_user PRIMARY KEY(room_id,user_id)
 );
 
 CREATE TABLE IF NOT EXISTS message (

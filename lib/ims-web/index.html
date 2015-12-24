@@ -24,17 +24,17 @@
 
                     <!-- Drawer Content -->
                     <paper-menu class="list" selected="[[route]]">
-                        <a href="/#/history">
+                        <a href="#/history">
                             <iron-icon icon="history"></iron-icon>
                             <span>History</span>
                         </a>
 
-                        <a href="/#/contacts">
+                        <a href="#/contacts">
                             <iron-icon icon="list"></iron-icon>
                             <span>Contacts</span>
                         </a>
 
-                        <a href="/#/profile">
+                        <a href="#/profile">
                             <iron-icon icon="account-circle"></iron-icon>
                             <span>Profile</span>
                         </a>
@@ -52,24 +52,24 @@
                     </paper-toolbar>
                 </template>
                 <div class="content">
-                    <app-router mode="hash">
+                    <app-router  mode="hash">
                         <!-- matches an exact path -->
-                        <app-route path="/history" import="components/x-history-page/x-history-page.html" bindRouter>
+                        <app-route path="/history" import="components/x-history-page/x-history-page.html">
                         </app-route>
 
-                        <app-route path="/contacts" import="components/x-contacts-page/x-contacts-page.html" bindRouter>
+                        <app-route path="/contacts" import="components/x-contacts-page/x-contacts-page.html">
                         </app-route>
 
-                        <app-route path="/dialog/:dialogId" import="/components/x-dialog-page/x-dialog-page.html" bindRouter>
+                        <app-route path="/dialog/:dialogId" import="/components/x-dialog-page/x-dialog-page.html">
                         </app-route>
 
-                        <app-route path="/profile" import="components/x-profile-page/x-profile-page.html" bindRouter>
+                        <app-route path="/profile" import="components/x-profile-page/x-profile-page.html">
                         </app-route>
 
-                        <app-route path="/login" import="/components/x-login-register-form/x-login-register-form.html" bindRouter>
+                        <app-route path="/login" import="/components/x-login-register-form/x-login-register-form.html">
                         </app-route>
 
-                        <app-route path="/login/:tokenValue" import="/components/x-login-register-form/x-login-register-form.html" bindRouter>
+                        <app-route path="/login/:tokenValue" import="/components/x-login-register-form/x-login-register-form.html" element="x-login-register-form">
                         </app-route>
 
                         <app-route path="*" redirect="/history"></app-route>

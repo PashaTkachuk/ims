@@ -9,10 +9,13 @@
             <template is="dom-repeat" id="contact_list" items="{{contacts}}" as="contact">
                 <x-contact-item contact="{{contact}}" user="{{user}}"></x-contact-item>
             </template>
+
+            <paper-toast id="contactPageToast" text="Contact added."></paper-toast>
         </paper-material>
+
         <paper-dialog id="addContactDialog" modal>
             <p>
-                <paper-input label="Enter contact email" value="{{contact_email}}"></paper-input>
+                <paper-input label="Enter contact email" type="email" value="{{contact_email}}"></paper-input>
             </p>
             <div class="buttons">
                 <paper-button dialog-dismiss>Cancel</paper-button>
