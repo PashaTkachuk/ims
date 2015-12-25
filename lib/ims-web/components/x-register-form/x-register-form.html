@@ -1,16 +1,17 @@
-<dom-module id="x-register-form">
-    <link rel="stylesheet" href="x-register-form.css">
-
+<dom-module id="x-register-form" on-keypress="handleKeyPressed">
     <template>
+        <link rel="stylesheet" href="x-register-form.css">
+        <iron-a11y-keys id="a11y-login" target="[[target]]" keys="enter" on-keys-pressed="sendRequest"></iron-a11y-keys>
+
         <div class="header">
             <span class="secondary-text">Create account</span><br>
             <iron-icon class="secondary-text" icon="account-circle"></iron-icon>
         </div>
 
         <div class="vertical-section">
-            <paper-input id="einput" required type="email" label="Email" type="email" value="{{email}}"></paper-input>
-            <paper-input id="pinput" required type="password" label="Password" pattern="[a-zA-Z0-9_-]*" error-message="Allowed: a-z A-Z 0-9 _ -" value="{{password}}"></paper-input>
-            <paper-input id="pcinput" required type="password" label="Confirm Your password" on-change="handleConfirm" error-message="Your password and confirmation password do not match." value="{{confirmPassword}}"></paper-input>
+            <paper-input id="einput" type="email" label="Email" type="email" value="{{email}}" auto-validate required></paper-input>
+            <paper-input id="pinput" type="password" label="Password" pattern="[a-zA-Z0-9_-]*" error-message="Allowed: a-z A-Z 0-9 _ -" value="{{password}}" auto-validate required></paper-input>
+            <paper-input id="pcinput" type="password" label="Confirm Your password" on-change="handleConfirm" error-message="Your password and confirmation password do not match." value="{{confirmPassword}}" auto-validate required></paper-input>
 
             <paper-button class="accent-color" raised on-click="sendRequest">Create account</paper-button>
             <paper-toast id="createTokenToast" text="Confirm your mail!"></paper-toast>

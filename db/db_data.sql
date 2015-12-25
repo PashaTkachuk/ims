@@ -10,15 +10,15 @@ INSERT INTO profile VALUES (1, 'Admin', 'avatar_user_1', '0989999999');
 
 INSERT INTO profile VALUES (2, 'Test', 'avatar_user_2.jpg', '0967777777');
 
-INSERT INTO user_roster (user_id) VALUES (1);
+INSERT INTO roster (user_id) VALUES (1);
 
-INSERT INTO user_roster (user_id) VALUES (2);
+INSERT INTO roster (user_id) VALUES (2);
 
-INSERT INTO roster VALUES (1, 2);
+INSERT INTO roster_users VALUES (1, 2);
 
-INSERT INTO roster VALUES (2, 1);
+INSERT INTO roster_users VALUES (2, 1);
 
-INSERT INTO room (name, owner_id) VALUES ('Admin, Test', 1);
+INSERT INTO room (name) VALUES ('Admin, Test');
 
 INSERT INTO room_users VALUES (1, 1);
 
@@ -36,13 +36,13 @@ INSERT INTO user_status (user_id, status) VALUES (3, 'offline');
 
 INSERT INTO profile VALUES (3, 'Test2', 'avatar_user_3.jpg', '0967777777');
 
-INSERT INTO user_roster (user_id) VALUES (3);
+INSERT INTO roster (user_id) VALUES (3);
 
-INSERT INTO roster VALUES (3, 1);
+INSERT INTO roster_users VALUES (3, 1);
 
-INSERT INTO roster VALUES (1, 3);
+INSERT INTO roster_users VALUES (1, 3);
 
-INSERT INTO room (name, owner_id) VALUES ('Admin, Test2', 3);
+INSERT INTO room (name) VALUES ('Admin, Test2');
 
 INSERT INTO room_users VALUES (2, 1);
 

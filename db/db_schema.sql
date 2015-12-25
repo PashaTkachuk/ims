@@ -17,20 +17,19 @@ CREATE TABLE IF NOT EXISTS profile (
    phone varchar(32) DEFAULT NULL
 );
 
-CREATE TABLE IF NOT EXISTS user_roster (
+CREATE TABLE IF NOT EXISTS roster (
    roster_id serial PRIMARY KEY,
    user_id int NOT NULL REFERENCES users ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS roster (
-   roster_id int NOT NULL REFERENCES user_roster ON DELETE CASCADE,
+CREATE TABLE IF NOT EXISTS roster_users (
+   roster_id int NOT NULL REFERENCES roster ON DELETE CASCADE,
    contact_id int NOT NULL REFERENCES users (user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS room (
    room_id serial PRIMARY KEY,
-   name varchar(128) NOT NULL,
-   owner_id int REFERENCES users ON DELETE SET NULL
+   name varchar(128) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS room_users (
